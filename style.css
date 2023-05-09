@@ -22,11 +22,17 @@ html {
   font-family: "Cabin", sans-serif;
   color: #ffffff;
   text-transform: uppercase;
-  font-size: 7vmin;
+  font-size: 6vmin;
   padding-left: 10%;
   padding-right: 10%;
 }
 
 section:nth-child(odd) {
   justify-content: flex-end;
+}
+
+b {
+  font-size: 12px;
+  text-transform: none;
+  margin: auto;
 }
