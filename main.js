@@ -30,7 +30,7 @@ const scene = new THREE.Scene()
  */
 // Texture
 const textureLoader = new THREE.TextureLoader()
-const gradientTexture = textureLoader.load("static/3.jpg")
+const gradientTexture = textureLoader.load("/3.jpg")
 gradientTexture.magFilter = THREE.NearestFilter
 
 // Material
