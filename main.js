@@ -8,7 +8,9 @@ const parameters = {
   materialColor: "#ffeded",
 }
 
-gui.addColor(parameters, "materialColor")
+gui.addColor(parameters, "materialColor").onChange(() => {
+  materal.color.set(parameters.materialColor)
+})
 
 /**
  * Base
@@ -20,13 +22,30 @@ const canvas = document.querySelector("canvas.webgl")
 const scene = new THREE.Scene()
 
 /**
- * Test cube
+ * objects
  */
-const cube = new THREE.Mesh(
-  new THREE.BoxGeometry(1, 1, 1),
-  new THREE.MeshBasicMaterial({ color: "#ff0000" })
+
+//materials
+const materal = new THREE.MeshToonMaterial({ color: parameters.materialColor })
+
+//mesh
+const mesh1 = new THREE.Mesh(new THREE.ConeGeometry(1, 0.4, 16, 60), materal)
+
+const mesh2 = new THREE.Mesh(new THREE.ConeGeometry(1, 2, 32), materal)
+
+const mesh3 = new THREE.Mesh(
+  new THREE.TorusKnotGeometry(1, 0.4, 100, 16),
+  materal
 )
-scene.add(cube)
+
+scene.add(mesh1, mesh2, mesh3)
+
+/**
+ * Lights
+ */
+const directionalLight = new THREE.DirectionalLight("#ffffff", 0.4)
+directionalLight.position.set(1, 1, 2)
+scene.add(directionalLight)
 
 /**
  * Sizes
@@ -68,6 +87,7 @@ scene.add(camera)
  */
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
+  alpha: true,
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))

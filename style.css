@@ -3,9 +3,8 @@
   padding: 0;
 }
 
-html,
-body {
-  overflow: hidden;
+html {
+  background: #0f0f0f;
 }
 
 .webgl {
@@ -21,7 +20,7 @@ body {
   height: 100vh;
   position: relative;
   font-family: "Cabin", sans-serif;
-  color: #ffeded;
+  color: #ffffff;
   text-transform: uppercase;
   font-size: 7vmin;
   padding-left: 10%;
