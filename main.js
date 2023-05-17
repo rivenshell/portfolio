@@ -92,7 +92,7 @@ particlesGeometry.setAttribute(
 const particlesMaterial = new THREE.PointsMaterial({
   color: parameters.materialColor,
   sizeAttenuation: textureLoader,
-  size: 0.03,
+  size: 0.02,
 })
 
 // Points
